@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction House | Premium Bidding Platform</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Task Information Banner -->
+    <div class="task-banner">
+        <div>Task ID: <span>WD-AUC-003</span> | Platform: <span>Auction House</span></div>
+        <div>Data Alcott Systems Internship Task</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-landmark-dome"></i> AUCTION HOUSE
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#auctions">Auctions</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="btn-gold" onclick="openLoginModal()">Login / Register</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Exclusive <span>Art, Antiques & Luxury</span></h1>
+            <p>Participate in secure, live-bidding auctions curated for collectors and connoisseurs worldwide.</p>
+            <a href="#auctions" class="btn-gold">Explore Active Auctions</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="container" id="categories">
+        <div class="section-title">
+            <h2>Auction Categories</h2>
+            <p>Browse through our specialized premium departments</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="filterCategory('Art')">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Art & Paintings</h3>
+                <ul>
+                    <li>• Modern Art</li>
+                    <li>• Classical Paintings</li>
+                    <li>• Contemporary Art</li>
+                    <li>• Sculptures</li>
+                </ul>
+            </div>
+            <div class="category-card" onclick="filterCategory('Antiques')">
+                <i class="fa-solid fa-chess-rook"></i>
+                <h3>Antiques & Collectibles</h3>
+                <ul>
+                    <li>• Vintage Furniture</li>
+                    <li>• Ancient Coins</li>
+                    <li>• Rare Books</li>
+                    <li>• Historical Artifacts</li>
+                </ul>
+            </div>
+            <div class="category-card" onclick="filterCategory('Jewelry')">
+                <i class="fa-solid fa-gem"></i>
+                <h3>Jewelry & Watches</h3>
+                <ul>
+                    <li>• Diamond Jewelry</li>
+                    <li>• Luxury Watches</li>
+                    <li>• Gemstones</li>
+                    <li>• Vintage Jewelry</li>
+                </ul>
+            </div>
+            <div class="category-card" onclick="filterCategory('Luxury')">
+                <i class="fa-solid fa-car-side"></i>
+                <h3>Luxury & Automobiles</h3>
+                <ul>
+                    <li>• Classic Cars</li>
+                    <li>• Luxury Vehicles</li>
+                    <li>• Automobilia</li>
+                    <li>• Vintage Motorcycles</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Auctions Listing -->
+    <section class="container" id="auctions">
+        <div class="section-title">
+            <h2>Featured Live Auctions</h2>
+            <p>Place your bids before time runs out</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCategory('All')">All Items</button>
+            <button class="filter-btn" onclick="filterCategory('Art')">Art & Paintings</button>
+            <button class="filter-btn" onclick="filterCategory('Antiques')">Antiques</button>
+            <button class="filter-btn" onclick="filterCategory('Jewelry')">Jewelry & Watches</button>
+            <button class="filter-btn" onclick="filterCategory('Luxury')">Luxury & Autos</button>
+        </div>
+
+        <div class="auctions-grid" id="auctionGrid">
+            <!-- Dynamic Auction Cards will be inserted by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Place Bid / Details Modal -->
+    <div class="modal" id="bidModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h3 id="modalItemTitle">Item Title</h3>
+            <p id="modalItemDesc" style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1rem;"></p>
+            <div class="bid-info">
+                <div>
+                    <span class="label">Current Highest Bid</span>
+                    <div class="value" id="modalCurrentBid">$0</div>
+                </div>
+                <div>
+                    <span class="label">Total Bids</span>
+                    <div class="value" id="modalTotalBids">0</div>
+                </div>
+            </div>
+            <label for="bidAmount" style="font-size: 0.9rem; color: var(--text-gray);">Enter your bid amount ($):</label>
+            <input type="number" id="bidAmount" placeholder="e.g. 15000">
+            <button class="btn-gold" style="width: 100%;" onclick="submitBid()">Place Bid Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>Auction House</span> (Data Alcott Systems Internship Task WD-AUC-003). All rights reserved.</p>
+    </footer>
+
+    <!-- Custom JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
